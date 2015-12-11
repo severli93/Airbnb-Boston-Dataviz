@@ -1,0 +1,76 @@
+html,body,div,ul,li,svg{
+    margin:0;
+    padding:0;
+    list-style:none;
+}
+
+/*------------Global-------------*/
+html,body{
+    height: 100%;
+    position: relative;
+    background: rgb(242,244,233);
+}
+
+.container{
+    height:100%;
+    position:absolute;
+}
+.container .section{
+    width:100%;
+}
+.container .part1{
+    float:left;
+    width:10%;
+}
+.container .canvas{
+    float:left;
+    width:90%;
+    height:100%;
+    background:white;
+    /*position:absolute;*/
+}
+.container .controls{
+    margin-bottom:20px;
+}
+#map1{
+    height:700px;
+}
+.meta{
+    color:rgb(180,180,180);
+}
+/*#map2{*/
+    /*height:50%;*/
+/*}*/
+
+/*-----------tooltip-----------*/
+/*.canvas .custom-tooltip{*/
+/*position:absolute;*/
+/*border:1px solid red;*/
+/*width:150px;*/
+/*min-height:10px;*/
+/*padding:0px 10px;*/
+/*}*/
+.canvas .custom-tooltip{
+    position:absolute;
+    /*border:1px solid grey;*/
+    width:180px;
+    min-height:10px;
+    padding:0px 10px;
+    opacity:0;
+    background-color:rgba(100,100,100,.8)
+}
+/*------------font-------------*/
+body{
+    font-size: 16px;
+}
+h1{ font-size:2em;}
+h2{ font-size:1.1em;}
+p{ font-size: .9em;
+color:#f4f1f1}
+
+/*------------svg--------------*/
+/*.neighbor{*/
+/*fill:none;*/
+/*stroke:green;*/
+/*stroke-width:1px;*/
+/*}*/

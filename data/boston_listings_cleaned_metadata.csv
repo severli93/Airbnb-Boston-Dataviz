@@ -1,0 +1,31 @@
+item1,item,Classification,explain
+,X,,Longitude (WGS84). Airbnb adds noise of 200m to coordinate data.
+,Y,,Latitude (WGS84). Airbnb adds noise of 200m to coordinate data.
+,room_id,,Unique listing ID
+,host_id,,"Host ID, not unique (one host can have many rooms)"
+Private room,room_type,1,"Unambigously provided by Airbnb. Either the host lists the entire unit, a private bedroom, or a shared room in which the host may be present during the stay."
+Entire home/apt,room_type,2,"Unambigously provided by Airbnb. Either the host lists the entire unit, a private bedroom, or a shared room in which the host may be present during the stay."
+Shared room,room_type,3,"Unambigously provided by Airbnb. Either the host lists the entire unit, a private bedroom, or a shared room in which the host may be present during the stay."
+,country,,
+,city,,
+,neighborho,,"Airbnb internal geography. Sometimes municipal-level. Use ""town_id, town,"" or ""subregion"" for geography."
+,address,,Street only. Airbnb does not provide exact addresses. Only coordinates.
+,reviews,,Count of reviews posted by those who booked a room.
+,overall_sa,,Average star rating (out of 5)
+,accommodat,,Number of persons host states the listing can accomodate.
+,bedrooms,,Number of bedrooms
+,bathrooms,,Number of bathrooms
+,price,,Nightly price
+,deleted,,States whether the listing was deleted. More of an internal tracker.
+,minstay,,The minimum number of nights required before booking.
+,timestamp,,The time at which the listing was RECORDED by the scraper.
+,latitude,,Longitude (WGS84). Airbnb adds noise of 200m to coordinate data.
+,longitude,,Latitude (WGS84). Airbnb adds noise of 200m to coordinate data.
+,survey_i,,Internal ID for tracking which times the survey was made.
+,town_id,,MassGIS Municipal ID #. Use this for accurate geography.
+,town,,MassGIS municipal boundary. This has been spatially joined.
+,subregion,,MAPC subregion.
+,COUNT,,Internal.
+,,,
+,,,
+,,,

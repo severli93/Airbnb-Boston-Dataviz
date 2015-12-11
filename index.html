@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Final Project</title>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,300italic,700' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,400italic' rel='stylesheet' type='text/css'>
+    <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="style.css" rel="stylesheet"/>
+</head>
+<body>
+
+<!--.container-->
+<div class="container">
+    <h1>Airbnb Boston Data Visualization</h1>
+    <h3>by Xingyue Li | Information Design and Visualization, NEU</h3>
+    <!-- buttons and title-->
+    <h2>Room Distribution</h2>
+    <div class="part1">
+    <div class="btn-group controls">
+
+        <p> <a href="#" class="btn btn-default" id="rDensity">room-density</a> </p>
+        <p> <a href="#" class="btn btn-default" id="rType">room-type</a> </p>
+    </div>
+    </div>
+    <!-- canvas-->
+    <div class="canvas" id="map1">
+        <div class="custom-tooltip" >
+            <h2 id="type"></h2>
+            <p>Room-ID: <span id="r_id"></span></p>
+            <p>City: <span id="city"></span></p>
+            <p>Address: <span id="addr"></span></p>
+            <p>Bedroom: <span id="bedroom"></span></p>
+            <p>Bathroom: <span id="bathroom"></span></p>
+            <p>Price: <span id="price"> dollars/night</span> dollars/night</p>
+            <p>Town: <span id="town"></span></p>
+            <p>Town-ID: <span id="town_id"></span></p>
+        </div>
+    </div>
+
+    <!--<div class="canvas" id="map2">2</div>-->
+    <!--<div class="canvas" id="map3">3</div>-->
+</div>
+
+<!-- Scripts -->
+<script src="http://d3js.org/d3.v3.min.js "charset="utf-8"></script>
+<script src="node_modules/queue-async/queue.min.js" charset="utf-8"></script>
+<script src="script.js"></script>
+
+
+<!--<script src="script/lib/d3/d3.min.js" charset="utf-8"></script>-->
+<!--<script src="script/lib/queue/queue.min.js"></script>-->
+<!--<script src="script/script.js"></script>-->
+</body>
+</html>
