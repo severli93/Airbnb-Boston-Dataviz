@@ -14,34 +14,44 @@
 <body>
 
 <!--.container-->
-<div class="container">
+<div class="container" id="container">
     <h1>Airbnb Boston Data Visualization</h1>
     <h3>by Xingyue Li | Information Design and Visualization, NEU</h3>
     <!-- buttons and title-->
     <h2>Room Distribution</h2>
     <div class="part1">
-    <div class="btn-group controls">
+        <div class="btn-group controls">
+            <p> <a href="#" class="btn btn-default" id="rInitial">Initial</a> </p>
+            <p><a href="#" class="btn btn-default" id="rDistribution">room-distribution</a>
 
-        <p> <a href="#" class="btn btn-default" id="rDensity">room-density</a> </p>
-        <p> <a href="#" class="btn btn-default" id="rType">room-type</a> </p>
-    </div>
+             <a href="#" class="btn btn-default" id="rType">room-type</a> </p>
+            <p> <a href="#" class="btn btn-default" id="clearAll">Clear all</a> </p>
+
+        </div>
     </div>
     <!-- canvas-->
+
     <div class="canvas" id="map1">
-        <div class="custom-tooltip" >
+        <div id="legend"></div>
+        <div class="custom-tooltip" id="tooltip1" >
             <h2 id="type"></h2>
-            <p>Room-ID: <span id="r_id"></span></p>
-            <p>City: <span id="city"></span></p>
-            <p>Address: <span id="addr"></span></p>
-            <p>Bedroom: <span id="bedroom"></span></p>
-            <p>Bathroom: <span id="bathroom"></span></p>
-            <p>Price: <span id="price"> dollars/night</span> dollars/night</p>
-            <p>Town: <span id="town"></span></p>
-            <p>Town-ID: <span id="town_id"></span></p>
+            <p><strong>Room-ID:</strong> <span id="r_id"></span></p>
+            <p><strong>City: </strong><span id="city"></span></p>
+            <p><strong>Address: </strong><span id="addr"></span></p>
+            <p><strong>Type: </strong><span id="rtypes"></span></p>
+            <p><strong>Bedroom:</strong> <span id="bedroom"></span></p>
+            <p><strong>Bathroom:</strong> <span id="bathroom"></span></p>
+            <p><strong>Price: </strong><span id="price"> dollars/night</span> dollars/night</p>
+            <p><strong>Town: </strong><span id="town"></span></p>
+            <p><strong>Town-ID: </strong><span id="town_id"></span></p>
         </div>
     </div>
 
-    <!--<div class="canvas" id="map2">2</div>-->
+    <div class="canvas" id="map2">
+        <h2>Review Accounts</h2>
+        <p class="custom-tooltip" id="tooltip2" ></p>
+    </div>
+
     <!--<div class="canvas" id="map3">3</div>-->
 </div>
 
