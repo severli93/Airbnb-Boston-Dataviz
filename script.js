@@ -129,6 +129,8 @@ function drawClearAll(){
         .data([]).exit().remove()
     d3.selectAll('.map-datapoints')
         .data([]).exit().remove()
+    d3.select('#tooltip1')
+        .style('opacity',0)
 
 }
 function drawInitial(census,neighbors, airbnb){
@@ -383,6 +385,7 @@ function drawGraph(census,neighbors,airbnb){
             div.style('opacity',0)
         })
 
+
 //reviews
     map2
         .append('g')
@@ -435,14 +438,18 @@ function drawGraph(census,neighbors,airbnb){
         })
 
 
-    dispatch.on('map1Select',function(roomId,d){
+    dispatch.on('map1Select',function(roomId){
         //Get unemployment time series for a particular state
         console.log("here~~~~~", roomId);
 
-        var xy = d3.mouse(map2.node());
-        var BlingBling5 = d3.select('#review-'+ roomId)
+        // var xy = d3.mouse(map2.node());
+        var BlingBling5 = d3.select('#stars-'+ roomId)
             .style('opacity', 1)
-            .style('stroke','black')
+            .style('stroke','#6514ED')
+            .style('stroke-width', 8)
+        var BlingBling51 = d3.select('#review-'+ roomId)
+            .style('opacity', 1)
+            .style('stroke','#7DF12A')
             .style('stroke-width', 8)
 
         var div = d3.select('#tooltip2')
@@ -450,17 +457,18 @@ function drawGraph(census,neighbors,airbnb){
             .transition()
         div
             .style('opacity', 1)
-
-            .html("Room ID:" + roomId + ",  Review:" +  + ", Star:"  )
-            .style("left", (xy[0] + 210) + "px")
+            .html("Room ID:" + roomId )
+            .style("left", (210) + "px")
             .style("top", function (d) {
-                return (xy[1] + "px");
+                return (100 + "px");
             })
 
     });
 
     dispatch.on('map1deSelect',function(roomId){
-        //plot.selectAll('#state-'+roomId).remove();
+        d3.select('#stars-'+roomId).remove();
+        d3.select('#review-'+roomId).remove();
+
     })
 
 
@@ -540,7 +548,8 @@ function getTooltips1(selection){
             tooltip.select('#price').html(d.Price)
             tooltip.select('#town_id').html(d.TownID)
             tooltip.select('#town').html(d.Town)
-
+            tooltip.select('#reviews').html(d.Review)
+            tooltip.select('#stars').html(d.AveStar)
         })
         .on('mousemove',function(){
             var xy=d3.mouse(map1.node());
