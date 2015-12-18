@@ -457,7 +457,7 @@ function drawGraph(census,neighbors,airbnb){
             .transition()
         div
             .style('opacity', 1)
-            .html("Room ID:" + roomId )
+            .html("Room ID:" + roomId + ' | ' + reviewById.get(roomId)[0] + ' + ' + reviewById.get(roomId)[1])
             .style("left", (210) + "px")
             .style("top", function (d) {
                 return (100 + "px");
@@ -717,8 +717,12 @@ function BlingBling5(selection){
 }
 //
 
+var reviewById = d3.map();
+
+
 function parseData(d){
-    return{
+    reviewById.set(+d.room_id, [+d['reviews'], +d['overall_sa']])
+    return {
         ID:+d.room_id,
         X: +d.X,
         Y: +d.Y,
