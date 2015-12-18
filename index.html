@@ -19,38 +19,69 @@
     <h3>by Xingyue Li | Information Design and Visualization, NEU</h3>
     <!-- buttons and title-->
     <h2>Room Distribution</h2>
-    <div class="part1">
-        <div class="btn-group controls">
-            <p> <a href="#" class="btn btn-default" id="rInitial">Initial</a> </p>
-            <p><a href="#" class="btn btn-default" id="rDistribution">room-distribution</a>
 
-             <a href="#" class="btn btn-default" id="rType">room-type</a> </p>
-            <p> <a href="#" class="btn btn-default" id="clearAll">Clear all</a> </p>
-
-        </div>
-    </div>
     <!-- canvas-->
-
-    <div class="canvas" id="map1">
-        <div id="legend"></div>
-        <div class="custom-tooltip" id="tooltip1" >
-            <h2 id="type"></h2>
-            <p><strong>Room-ID:</strong> <span id="r_id"></span></p>
-            <p><strong>City: </strong><span id="city"></span></p>
-            <p><strong>Address: </strong><span id="addr"></span></p>
-            <p><strong>Type: </strong><span id="rtypes"></span></p>
-            <p><strong>Bedroom:</strong> <span id="bedroom"></span></p>
-            <p><strong>Bathroom:</strong> <span id="bathroom"></span></p>
-            <p><strong>Price: </strong><span id="price"> dollars/night</span> dollars/night</p>
-            <p><strong>Town: </strong><span id="town"></span></p>
-            <p><strong>Town-ID: </strong><span id="town_id"></span></p>
+    <div class="row">
+    <div class="col-md-8">
+        <div class="part1">
+            <div class="btn-group controls">
+                <a href="#" class="btn btn-default" id="rInitial">Initial</a>
+                <a href="#" class="btn btn-default" id="rDistribution">room-distribution</a>
+                <a href="#" class="btn btn-default" id="rType">room-type</a>
+                <a href="#" class="btn btn-default" id="clearAll">Clear all</a>
+            </div>
         </div>
+
+
     </div>
 
-    <div class="canvas" id="map2">
+    </div>
+    <div class="row" id="row-map">
+
+        <div class="col-md-offset-1 col-md-2">
+
+            <div id="legend">
+
+
+            </div>
+
+
+
+
+        </div>
+        <div class="col-md-8">
+            <div class="custom-tooltip" id="tooltip1" >
+                <h2 id="type"></h2>
+                <p><strong>Room-ID:</strong> <span id="r_id"></span></p>
+                <p><strong>City: </strong><span id="city"></span></p>
+                <p><strong>Address: </strong><span id="addr"></span></p>
+                <p><strong>Type: </strong><span id="rtypes"></span></p>
+                <p><strong>Bedroom:</strong> <span id="bedroom"></span></p>
+                <p><strong>Bathroom:</strong> <span id="bathroom"></span></p>
+                <p><strong>Price: </strong><span id="price"> dollars/night</span> dollars/night</p>
+                <p><strong>Town: </strong><span id="town"></span></p>
+                <p><strong>Town-ID: </strong><span id="town_id"></span></p>
+            </div>
+            <div  id="map1">
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+        <div class="canvas" id="map2">
         <h2>Review Accounts</h2>
         <p class="custom-tooltip" id="tooltip2" ></p>
+        </div>
+        </div>
+
     </div>
+
 
     <!--<div class="canvas" id="map3">3</div>-->
 </div>

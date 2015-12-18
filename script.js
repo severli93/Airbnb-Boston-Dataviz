@@ -4,20 +4,20 @@
 console.log("Assignment 5");
 
 var margin = {t:80,r:100,b:80,l:100};
-var width = document.getElementById('map1').clientWidth - margin.r - margin.l,
-    height = document.getElementById('map1').clientHeight - margin.t - margin.b;
+var width = document.getElementById('row-map').clientWidth - margin.r - margin.l,
+    height = document.getElementById('row-map').clientHeight - margin.t - margin.b;
 
-var margin2 = {t:80,r:100,b:80,l:100};
+var margin2 = {t:50,r:70,b:80,l:70};
 var width2 = document.getElementById('map2').clientWidth - margin.r - margin.l,
     height2 = document.getElementById('map2').clientHeight - margin.t - margin.b;
 
 var map1 = d3.select('#map1')
     .append('svg')
-    .attr('width',width+margin.r+margin.l)
+    .attr('width',width)
     .attr('height',height + margin.t + margin.b)
     .append('g')
     .attr('class','canvas-map1')
-    .attr('transform','translate('+margin.l+','+margin.t+')');
+    .attr('transform','translate('+(-2*margin.l)+','+margin.t+')');
 
 var map2 = d3.select('#map2')
     .append('svg')
@@ -248,9 +248,9 @@ function drawInitial(census,neighbors, airbnb){
 
     mapC1
         .call(BlingBling3)
+    mapC1
         .on('click',function(d){
             if(d.selected == true){
-
                 //if state is already selected, de-select, remove time series in graph module
                 //set stroke to null
                 dispatch.map1deSelect(d.ID);
@@ -260,7 +260,7 @@ function drawInitial(census,neighbors, airbnb){
 
                 //if state is NOT selected yet, select it, add time series in graph module
                 d.selected = true;
-                dispatch.map1deSelect(+d.ID);
+                dispatch.map1Select(+d.ID);
                 d3.select(this).style('stroke','black').style('stroke-width',5);
             }
         })
@@ -331,6 +331,7 @@ function drawGraph(census,neighbors,airbnb){
         .append('g')
         .append('line')
         .attr('class','Stars')
+        .attr('id',function(d){return 'stars-'+ d.ID;})
         .attr('x1',function(d, i){
             return scaleX(i);
         })
@@ -387,6 +388,7 @@ function drawGraph(census,neighbors,airbnb){
         .append('g')
         .append('line')
         .attr('class','Reviews')
+        .attr('id',function(d){return 'review-'+ d.ID;})
         .attr('x1',function(d, i){
            return scaleX(i);
         })
@@ -405,17 +407,17 @@ function drawGraph(census,neighbors,airbnb){
 
         .on('mouseover',function(d) {
             var xy = d3.mouse(map2.node());
-            var BlingBling5 = d3.select(this)
-                .style('opacity', 1)
-                .style('stroke','#6514ED')
-                .style('stroke-width', 8)
+            //var BlingBling5 = d3.select(this)
+            //    .style('opacity', 1)
+            //    .style('stroke','#6514ED')
+            //    .style('stroke-width', 8)
             var div = d3.select('#tooltip2')
             div
                 .transition()
             div
                 .style('opacity', 1)
 
-                .html("Room ID:" + d.ID + ",/n  Review:" + d.Review + ",/n Star:" + d.AveStar)
+                .html("Room ID:" + d.ID + ",  Review:" + d.Review + ", Star:" + d.AveStar)
                 .style("left", (xy[0] + 210) + "px")
                 .style("top", function (d) {
                     return (xy[1] + "px");
@@ -433,20 +435,31 @@ function drawGraph(census,neighbors,airbnb){
         })
 
 
-    dispatch.on('map1select.graph',function(roomId){
+    dispatch.on('map1Select',function(roomId,d){
         //Get unemployment time series for a particular state
         console.log("here~~~~~", roomId);
-        var dataSeries = unemployment.get(roomId);
-        console.log("work");
 
-        //plot.append('path')
-        //    .datum(dataSeries)
-        //    .attr('class','state-line')
-        //    .attr('id','state-'+stateId)
-        //    .attr('d',lineGen);
+        var xy = d3.mouse(map2.node());
+        var BlingBling5 = d3.select('#review-'+ roomId)
+            .style('opacity', 1)
+            .style('stroke','black')
+            .style('stroke-width', 8)
+
+        var div = d3.select('#tooltip2')
+        div
+            .transition()
+        div
+            .style('opacity', 1)
+
+            .html("Room ID:" + roomId + ",  Review:" +  + ", Star:"  )
+            .style("left", (xy[0] + 210) + "px")
+            .style("top", function (d) {
+                return (xy[1] + "px");
+            })
+
     });
 
-    dispatch.on('statedeselect.graph',function(roomId){
+    dispatch.on('map1deSelect',function(roomId){
         //plot.selectAll('#state-'+roomId).remove();
     })
 
@@ -533,7 +546,7 @@ function getTooltips1(selection){
             var xy=d3.mouse(map1.node());
             var tooltip=d3.select('.custom-tooltip');
             tooltip
-                .style('left',width+100+'px')
+                .style('left',(width/2)+66+'px')
                 .style('top',function(d){
                     if((xy[1]+50)<162){  return 162+'px';}
 
@@ -586,7 +599,7 @@ function BlingBling2(selection){
             var sel = d3.select(this);
             sel.moveToFront();
             d3.select(this)
-                //.moveToFront()
+                .moveToFront()
                 .transition()
                 .duration(200)
                 .style('opacity',1)

@@ -17,43 +17,43 @@ html,body{
 
 .container{
     height:100%;
-    width:97%;
+    /*width:97%;*/
     /*position:absolute;*/
-    float:right;
+    /*float:right;*/
     position:relative;
 }
 .container .section{
     width:100%;
 }
 .container .part1{
-    float:left;
-    width:10%;
-}
-.container .legend{
-    float:left;
-    /*width:10%;*/
-    position:absolute;
-    z-index:100;
-}
-.container .canvas{
-    float:left;
-    width:80%;
-    height:100%;
-
-    /*position:absolute;*/
+/*position:relative;*/
+    /*float:left*/
 }
 .container .controls{
-    margin-bottom:20px;
-
+    /*margin-bottom:20px;*/
+    /*position:absolute;*/
+    /*float:left;*/
+    /*width:15%;*/
 }
-.canvas-map1{
-
-
+.container .legend{
+    /*position:absolute;*/
+    /*float:left;*/
+    /*width:10%;*/
+    /*position:absolute;*/
+    /*z-index:100;*/
 }
+.container .canvas{
+    /*float:left;*/
+    /*width:80%;*/
+    height:100%;
+    /*position:absolute;*/
+}
+
+
 #map1{
     /*height:100%*/
-    height:600px;
-    position:relative;
+    /*position:relative;*/
+
     /*z-index:10;*/
     /*width:100%*/
     /*background:#F4F1F1;*/
@@ -62,8 +62,8 @@ html,body{
 #map2{
 
     /*clear:both;*/
-    position:relative;
-    z-index:10;
+    /*position:relative;*/
+    /*z-index:10;*/
     /*margin-top:-200px;*/
     height:300px;
     width:100%;
@@ -108,12 +108,29 @@ html,body{
     opacity:0;
     background-color:rgba(100,100,100,.8)
 }
+
+
+#tooltip1 {
+    position:absolute;
+    /*border:1px solid grey;*/
+    width:240px;
+    min-height:10px;
+    padding:0px 10px;
+    opacity:0;
+    background-color:rgba(100,100,100,.8)
+}
 /*------------font-------------*/
 body{
     font-size: 16px;
 }
 h1{ font-size:2em;}
-h2{ font-size:1.1em;}
+h2{
+    font-size:1.1em;
+    margin-top: 0px;
+    margin-bottom: 0px
+    /*margin-top: 0px*/
+
+}
 p{ font-size: .9em;
 color:#f4f1f1}
 
@@ -123,3 +140,16 @@ color:#f4f1f1}
 /*stroke:green;*/
 /*stroke-width:1px;*/
 /*}*/
+
+#row-map {
+    height: 666px;
+}
+
+
+#legend {
+    margin-top: 150%;
+}
+
+.part1 {
+    margin-top: 15px;
+}
