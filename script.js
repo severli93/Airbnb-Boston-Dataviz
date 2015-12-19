@@ -7,7 +7,7 @@ var margin = {t:80,r:100,b:80,l:100};
 var width = document.getElementById('row-map').clientWidth - margin.r - margin.l,
     height = document.getElementById('row-map').clientHeight - margin.t - margin.b;
 
-var margin2 = {t:50,r:70,b:80,l:70};
+var margin2 = {t:15,r:70,b:80,l:70};
 var width2 = document.getElementById('map2').clientWidth - margin.r - margin.l,
     height2 = document.getElementById('map2').clientHeight - margin.t - margin.b;
 
@@ -71,11 +71,10 @@ queue()
     .defer(d3.json,'data/bos_census_blk_group_merge.geojson')
     .defer(d3.json,'data/bos_neighborhoods_merge.geojson')
     .defer(d3.csv,'data/boston_listings_cleaned.csv',parseData)
-    .defer(d3.csv,'data/boston_listings_cleaned_metadata.csv',parseMetaData)
     .await(dataLoaded)
 
 
-function dataLoaded (err,census,neighbors, airbnb,metadata){
+function dataLoaded (err,census,neighbors, airbnb){
         var newCensusFeatures=census.features;
         //console.log('features are ',newCensusFeatures);
 
@@ -457,7 +456,7 @@ function drawGraph(census,neighbors,airbnb){
             .transition()
         div
             .style('opacity', 1)
-            .html("Room ID:" + roomId + ' | ' + reviewById.get(roomId)[0] + ' + ' + reviewById.get(roomId)[1])
+            .html("Room ID:" + roomId + ' | Room Reviews:' + reviewById.get(roomId)[0] + ' | Assessment ' + reviewById.get(roomId)[1])
             .style("left", (210) + "px")
             .style("top", function (d) {
                 return (100 + "px");
@@ -559,8 +558,8 @@ function getTooltips1(selection){
                 .style('top',function(d){
                     if((xy[1]+50)<162){  return 162+'px';}
 
-                else if((xy[1]+50)>441)
-                    { return 441+'px';}
+                else if((xy[1]+50)>350)
+                    { return 350+'px';}
                 else
                     { return (xy[1]+50)+'px' }    })
             // .style('top',(xy[1]+50)+'px')
@@ -681,44 +680,9 @@ function BlingBling4(selection){
         })
 }
 //
-function BlingBling5(selection){
-    selection
-        .on('mouseenter',function(d){
-            console.log('bingbling4')
-            var sel = d3.select(this);
-            sel.moveToFront();
-            // this.parentElement.appendChild(this);
 
-            var mapC=d3.select(this)
-                .transition()
-                .duration(200)
-                .attr('r',10)
-                .style('fill','blue')//this --> selection
-            mapC1=mapC
-                .transition()
-                .duration(200)
-                .style('opacity',.3)
-
-        })
-
-        .on('mouseleave',function(d){
-            var mapC=d3.select(this)
-                .transition()
-                .duration(1000)
-                .attr('r',3)
-                .style('fill',function(d){
-                    if(d.Type=="Private room"){return colorType[1]; }
-                    else if(d.Type=="Shared room"){ return colorType[2]; }
-                    else if(d.Type=="Entire home/apt"){ return colorType[3]; }
-                    else { return "black"; }
-                })
-                .style('opacity',.8)
-        })
-}
-//
 
 var reviewById = d3.map();
-
 
 function parseData(d){
     reviewById.set(+d.room_id, [+d['reviews'], +d['overall_sa']])
@@ -739,9 +703,4 @@ function parseData(d){
         TownID:+d['town_id'],
         Town:d['town']
     }
-
-}
-function parseMetaData(d){
-    //metadata.set(d.item1, d.classification)
-    //   metadata.set(d.activity1, +d.classification)
 }
