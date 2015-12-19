@@ -1,7 +1,6 @@
 /**
  * Created by xingyueli on 12/3/15.
  */
-console.log("Assignment 5");
 
 var margin = {t:80,r:100,b:80,l:100};
 var width = document.getElementById('row-map').clientWidth - margin.r - margin.l,
@@ -363,7 +362,7 @@ function drawGraph(census,neighbors,airbnb){
                 .transition()
             div
                 .style('opacity',1)
-                .html("Room ID:" + d.ID+ ", /n Review:" + d.Review+ ",/n Star:" + d.AveStar )
+                .html("Room ID:" + d.ID+ " | Review:" + d.Review+ " |  Assessment:" + d.AveStar )
                 .style("left", (xy[0]+210) + "px")
                 .style("top", function(d){
                     return (xy[1]+"px");
@@ -547,8 +546,8 @@ function getTooltips1(selection){
             tooltip.select('#price').html(d.Price)
             tooltip.select('#town_id').html(d.TownID)
             tooltip.select('#town').html(d.Town)
-            tooltip.select('#reviews').html(d.Review)
-            tooltip.select('#stars').html(d.AveStar)
+            //tooltip.select('#reviews').html(d.Review)
+            //tooltip.select('#stars').html(d.AveStar)
         })
         .on('mousemove',function(){
             var xy=d3.mouse(map1.node());
