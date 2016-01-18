@@ -103,16 +103,46 @@ function dataLoaded (err,census,neighbors, airbnb){
         d3.selectAll('.btn').on('click',function(){
             //find out which button is clikced
             var btn=d3.select(this).attr('id')
-
-            if(btn=='rDistribution'){
-                drawDistri(census,neighbors,airbnb)}
-            if(btn=="rType"){
-                drawType(census,neighbors,airbnb)}
+            //if(btn=='rDistribution'){
+            //    drawDistri(census,neighbors,airbnb)}
+            //if(btn=="rType"){
+            //    drawType(census,neighbors,airbnb)}
             if(btn=="clearAll"){
                 drawClearAll(census,neighbors,airbnb)}
             if(btn=="rInitial"){
                 drawInitial(census,neighbors,airbnb);}
         })
+    var checked = false;
+
+    d3.selectAll(".checkb")
+        .property('checked',checked)
+        .on("change", function () {
+        //var selected = this.name,
+        //    display = this.checked ? "inline" : "none";
+        //
+        //svg.selectAll(".dot")
+        //    .filter(function(d) { return d.name == selected; })
+        //    .attr("display", display);
+
+        console.log("ohhhhhhhhh")
+        console.log(this.value)
+        if (this.value=='1'){
+            drawDistri(census,neighbors,airbnb)}
+        if (this.value=='2'){
+            drawType(census,neighbors,airbnb)}
+
+
+    });
+
+
+    //function checkAll(){
+ //    d3.selectAll('input').property('checked',true);
+ //}
+ //   function uncheckAll(){
+ //       d3.selectAll('input').property('chedck',false)
+ //   }
+
+
 //draw bar charts below
         drawGraph(census,neighbors,airbnb)
     }
