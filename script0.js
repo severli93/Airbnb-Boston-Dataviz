@@ -64,7 +64,7 @@ d3.selection.prototype.moveToFront = function() {
 var dispatch = d3.dispatch('map1Select','map1deSelect','timechange');
 
 //TODO: create a d3.map() to store the value of airbnb room number per block group
-// var airbnbRoom=d3.map()
+var airbnbRoom=d3.map()
 //TODO: import data, parse, and draw
 queue()
     .defer(d3.json,'data/bos_census_blk_group_merge.geojson')
@@ -79,7 +79,7 @@ function dataLoaded (err,census,neighbors, airbnb){
         airbnb = airbnb.filter(function(d) {
           return d.Review != 0;
         })
-        // console.log(airbnb);
+        console.log(airbnb);
 //0.draw legend
         Legend = d3.select('#legend').append('svg')
             .attr('height', height+ margin.t + margin.b)
@@ -108,14 +108,12 @@ function dataLoaded (err,census,neighbors, airbnb){
         d3.selectAll('.btn').on('click',function(){
             //find out which button is clikced
             var id = d3.select(this).attr('id')
-            location.href = "#titleId"
+
             if(id == 'rDistribution'){
                 drawDistri(census,neighbors,airbnb)}
             if(id == "rType"){
                 drawType(census,neighbors,airbnb)}
             if(id == "clearAll"){
-              document.querySelectorAll("#rDistribution input")[0].checked = false
-              document.querySelectorAll("#rType input")[0].checked = false
                 drawClearAll(census,neighbors,airbnb)}
             if(id == "rInitial"){
                 drawInitial(census,neighbors,airbnb);}
@@ -175,7 +173,7 @@ function drawInitial(census,neighbors, airbnb){
         .append('g')
         .selectAll('.map-neighbors')
         .data(neighbors.features,function(d){ return d.properties.cartodb_id;})
-    // console.log(neighbors.features)
+    console.log(neighbors.features)
 
     var mapBEnter=mapB.enter()
         .append('g')
@@ -279,10 +277,7 @@ function drawGraph(census,neighbors,airbnb){
 //filter data ouside map region
     function OutsideFilter1(element, index, array){return element.Town=="Boston";}
 //filter data with zero value
-    function OutsideFilter2(element, index, array){
-      // return element.Review!=0;
-      return element;
-    }
+    function OutsideFilter2(element, index, array){return element.Review!=0;}
 
     var _filtered = airbnb.filter(OutsideFilter1);
     var filtered = _filtered.filter(OutsideFilter2)
@@ -290,21 +285,17 @@ function drawGraph(census,neighbors,airbnb){
     var ReviewMin=d3.min(filtered, function(d){return d.Review}),
         ReviewMax=d3.max(filtered, function(d){return d.Review});
     featureLength  = filtered.length;
-    // console.log('length is ',featureLength);
+    console.log('length is ',featureLength);
 
     scaleX=d3.scale.linear().domain([0,featureLength]).range([0,width2]);
-    scaleY1=d3.scale.log().domain([ReviewMin,ReviewMax]).range([height2,0])
+    scaleY1=d3.scale.linear().domain([ReviewMin,ReviewMax]).range([height2,0]);
     scaleY2=d3.scale.linear().domain([0,5]).range([height2,0]);
 
 
     var axisY1=d3.svg.axis()
         .orient('left')
-        .scale(scaleY1)
-        .ticks(6, ",.1s")
-        .tickSize(2, 0)
-        // .tickFormat(function(d) {
-        //   return Number(d)
-        // })
+        .ticks(8)
+        .tickSize(.2)
         //.tickValues([0,50,100,150,200,250,300,350]);
     var axisY2=d3.svg.axis()
         .orient('right')
@@ -312,37 +303,37 @@ function drawGraph(census,neighbors,airbnb){
         .tickSize(.2)
         //.tickValues([0,1,2,3,3.5,4,4.5,5]);
 // draw axes
-    // axisY1
+    axisY1.scale(scaleY1)
     axisY2.scale(scaleY2);
     //review axis y
     mapaxis=mapB0
         .append('g')
-        .attr('transform','translate('+(-10)+','+30+')')
         .attr('class','axis axis-y')
         .call(axisY1)
+        .attr('transform','translate('+(-10)+','+0+')')
         .style('fill','red')
     mapB0.append('text')
-        .attr('class','h4')
-        .attr('y',0)
-        .attr('x',-margin.r/2)
+        //.attr('transform','rotate(-90)')
+        .attr('y',height/4 )
+        .attr('x',-40)
         .attr('dy','1em')
-        .style('text-anchor','left')
+        .style('text-anchor','middle')
         .text('Review')
         .style('fill','red')
 
     //assessment axis y
     mapaxis2=mapB0
         .append('g')
-        .attr('class','axis axis-y ')
+        .attr('class','axis axis-y')
         .call(axisY2)
-        .attr('transform','translate('+(width2+10)+','+30+')')
+        .attr('transform','translate('+(width2+10)+','+0+')')
         .style('fill','orange')
     mapB0.append('text')
-        .attr('class','h4')
-        .attr('y',0)
-        .attr('x',width2)
+        //.attr('transform','rotate(-90)')
+        .attr('y',height/4)
+        .attr('x',width2+50)
         .attr('dy','1em')
-        .style('text-anchor','left')
+        .style('text-anchor','middle')
         .text('Stars')
         .style('fill','orange')
 
@@ -356,7 +347,6 @@ function drawGraph(census,neighbors,airbnb){
     var map2Enter=map2.enter()
         .append('g')
         .attr('class','graph1')
-        .attr('transform','translate('+0+','+30+')')
 
     var map2Exit=map2.exit()
         .transition()
@@ -472,6 +462,8 @@ function drawGraph(census,neighbors,airbnb){
 
     dispatch.on('map1Select',function(roomId){
         //Get unemployment time series for a particular state
+        console.log("here~~~~~", roomId);
+
         // var xy = d3.mouse(map2.node());
         //var BlingBling5 = d3.select('#stars-'+ roomId)
         //    .style('opacity', 1)
@@ -677,10 +669,9 @@ function BlingBling3(selection){
 }
 //type points blingbling
 function BlingBling4(selection){
-  console.log(selection);
-    selection.each(function(e) {
-        e.on('mouseenter',function(d){
-            // console.log('bingbling4')
+    selection
+        .on('mouseenter',function(d){
+            console.log('bingbling4')
             var sel = d3.select(this);
             sel.moveToFront();
            // this.parentElement.appendChild(this);
@@ -697,7 +688,7 @@ function BlingBling4(selection){
 
         })
 
-        e.on('mouseleave',function(d){
+        .on('mouseleave',function(d){
             var mapC=d3.select(this)
                 .transition()
                 .duration(1000)
@@ -710,7 +701,6 @@ function BlingBling4(selection){
                 })
                 .style('opacity',.8)
         })
-      });
 }
 //
 

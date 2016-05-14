@@ -15,46 +15,35 @@
 
 <!--.container-->
 <div class="container" id="container">
+    <h1>Airbnb Boston Data Visualization</h1>
+    <h3>by Xingyue Li | Information Design and Visualization, NEU</h3>
+    <!-- buttons and title-->
+    <h2>Room Distribution</h2>
 
-  <div class="row" >
-    <div class="col-md-12 h1">Airbnb Boston Data Visualization</div>
-    <!-- <div class=""></div> -->
-      <legend></legend>
-    <div class="col-md-offset-6 col-md-6" style="margin-top:-20px">
-      <p><h6>by Xingyue Li</h6></p>
-      <p><h6>IDV Program | Northeastern University</h6></p>
+    <!-- canvas-->
+    <div class="row">
+    <div class="col-md-8">
+        <div class="part1">
+            <div class="btn-group controls">
+                <a href="#" class="btn btn-default" id="rInitial">Initial</a>
+                <a href="#" class="btn btn-default" id="rDistribution">Room-Density</a>
+                <a href="#" class="btn btn-default" id="rType">Room-Type</a>
+                <a href="#" class="btn btn-default" id="clearAll">Clear All</a>
+            </div>
+        </div>
+
+
     </div>
 
-  </div>
-
-
-  <div class="row">
-  <!-- buttons and title-->
-    <div class="col-md-12 h2" id="titleId">I.Room Distribution</div>
-    <div class="row">
-      <div class="col-md-6">
-          <div class="part1">
-              <span>
-                <a name="anchor1" class="btn btn-default btn-sm controls" style="backgroud-color:@brand-info" id="rInitial">Initial</a>
-              <span style="margin-left:20px">
-                <label class="btn radio-inline" id="rDistribution"><input type="radio" value="">Room-Density</label>
-                <label class="btn radio-inline" id="rType"><input type="radio" value="">Room-Types</label>
-              </span>
-                <a name="anchor1" class="btn btn-default btn-sm controls" style="backgroud-color:@brand-danger" id="clearAll">Clear All</a>
-                  </span>
-                  <!-- <a href="#"  type="radio" id="rDistribution">Room-Density</a> -->
-                  <!-- <a href="#" class="btn btn-default btn-sm controls" id="rType">Room-Type</a> -->
-                  <!-- </button> -->
-          </div>
-      </div>
     </div>
-    <div class="row">
-    <div class="col-md-6"></div>
-    <!--  boston map -->
-        <div class="col-md-12" id="row-map">
-          <div class="col-md-offset-2 col-md-2" id="legend"></div>
-          <div class="col-md-offset-0 col-md-6">
-            <div id="map1"></div>
+    <div class="row" id="row-map">
+
+        <div class="col-md-offset-1 col-md-2">
+
+            <div id="legend"></div>
+
+        </div>
+        <div class="col-md-8">
             <div class="custom-tooltip" id="tooltip1" >
                 <h2 id="type"></h2>
                 <p><strong>Room-ID:</strong> <span id="r_id"></span></p>
@@ -66,25 +55,29 @@
                 <p><strong>Price: </strong><span id="price"> dollars/night</span> dollars/night</p>
                 <p><strong>Town: </strong><span id="town"></span></p>
                 <p><strong>Town-ID: </strong><span id="town_id"></span></p>
+                <!--<p><strong>Review: </strong><span id="reviews"></span></p>-->
+                <!--<p><strong>Star: </strong><span id="stars"></span></p>-->
+            </div>
+            <div  id="map1">
+
             </div>
 
-          </div>
+
         </div>
 
-  </div>
 
-    <!-- canvas-->
-  <div class="row">
+    </div>
 
-  </div>
     <div class="row">
-      <p class="col-md-12 h2">II. Room Reviews and Assessment</p>
-        <div class="col-md-12 canvas" id="map2">
-
+        <div class="col-md-12">
+        <div class="canvas" id="map2">
+        <h2>Room Reviews and Assessment</h2>
         <p class="custom-tooltip" id="tooltip2" ></p>
+        </div>
         </div>
 
     </div>
+
 
     <!--<div class="canvas" id="map3">3</div>-->
 </div>
@@ -94,5 +87,9 @@
 <script src="node_modules/queue-async/queue.min.js" charset="utf-8"></script>
 <script src="script.js"></script>
 
+
+<!--<script src="script/lib/d3/d3.min.js" charset="utf-8"></script>-->
+<!--<script src="script/lib/queue/queue.min.js"></script>-->
+<!--<script src="script/script.js"></script>-->
 </body>
 </html>
