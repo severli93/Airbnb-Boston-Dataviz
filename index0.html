@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Final Project</title>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,300italic,700' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,400italic' rel='stylesheet' type='text/css'>
+    <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="style.css" rel="stylesheet"/>
+</head>
+<body>
+
+<!--.container-->
+<div class="container" id="container">
+    <h1>Airbnb Boston Data Visualization</h1>
+    <h3>by Xingyue Li | Information Design and Visualization, NEU</h3>
+    <!-- buttons and title-->
+    <h2>Room Distribution</h2>
+
+    <!-- canvas-->
+    <div class="row">
+    <div class="col-md-8">
+        <div class="part1">
+            <div class="btn-group controls">
+                <a href="#" class="btn btn-default" id="rInitial">Initial</a>
+                <a href="#" class="btn btn-default" id="rDistribution">Room-Density</a>
+                <a href="#" class="btn btn-default" id="rType">Room-Type</a>
+                <a href="#" class="btn btn-default" id="clearAll">Clear All</a>
+            </div>
+        </div>
+    </div>
+
+    </div>
+    <div class="row" id="row-map">
+
+        <div class="col-md-offset-1 col-md-2">
+
+            <div id="legend"></div>
+
+        </div>
+        <div class="col-md-8">
+            <div class="custom-tooltip" id="tooltip1" >
+                <h2 id="type"></h2>
+                <p><strong>Room-ID:</strong> <span id="r_id"></span></p>
+                <p><strong>City: </strong><span id="city"></span></p>
+                <p><strong>Address: </strong><span id="addr"></span></p>
+                <p><strong>Type: </strong><span id="rtypes"></span></p>
+                <p><strong>Bedroom:</strong> <span id="bedroom"></span></p>
+                <p><strong>Bathroom:</strong> <span id="bathroom"></span></p>
+                <p><strong>Price: </strong><span id="price"> dollars/night</span> dollars/night</p>
+                <p><strong>Town: </strong><span id="town"></span></p>
+                <p><strong>Town-ID: </strong><span id="town_id"></span></p>
+                <!--<p><strong>Review: </strong><span id="reviews"></span></p>-->
+                <!--<p><strong>Star: </strong><span id="stars"></span></p>-->
+            </div>
+            <div  id="map1">
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+        <div class="canvas" id="map2">
+        <h2>Room Reviews and Assessment</h2>
+        <p class="custom-tooltip" id="tooltip2" ></p>
+        </div>
+        </div>
+
+    </div>
+
+
+    <!--<div class="canvas" id="map3">3</div>-->
+</div>
+
+<!-- Scripts -->
+<script src="http://d3js.org/d3.v3.min.js "charset="utf-8"></script>
+<script src="node_modules/queue-async/queue.min.js" charset="utf-8"></script>
+<script src="script.js"></script>
+
+
+<!--<script src="script/lib/d3/d3.min.js" charset="utf-8"></script>-->
+<!--<script src="script/lib/queue/queue.min.js"></script>-->
+<!--<script src="script/script.js"></script>-->
+</body>
+</html>

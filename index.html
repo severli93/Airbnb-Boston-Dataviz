@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<<<<<<< HEAD
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -48,64 +49,64 @@
             <a href="#" class="btn btn-default" id="clearAll">Clear All</a>
         </div>
 
+=======
+<header>
+  <title>Airbnb Boston Dataviz</title>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,300italic,700' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,400italic' rel='stylesheet' type='text/css'>
+  <link href="bower_components/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+  <link rel="icon" href="data:;base64,=">
+  <link href="style1.css" rel="stylesheet"/>
+</header>
+>>>>>>> master
 
+
+<body>
+  <!-- container -->
+  <div class="container">
+    <div class="row title">
+      <h1>Airbnb Boston Dataviz</h1>
     </div>
 
-    </div>
-    <div class="row" id="row-map">
-
-        <div class="col-md-offset-1 col-md-2">
-
-            <div id="legend"></div>
-
-        </div>
-        <div class="col-md-8">
-            <div class="custom-tooltip" id="tooltip1" >
-                <h2 id="type"></h2>
-                <p><strong>Room-ID:</strong> <span id="r_id"></span></p>
-                <p><strong>City: </strong><span id="city"></span></p>
-                <p><strong>Address: </strong><span id="addr"></span></p>
-                <p><strong>Type: </strong><span id="rtypes"></span></p>
-                <p><strong>Bedroom:</strong> <span id="bedroom"></span></p>
-                <p><strong>Bathroom:</strong> <span id="bathroom"></span></p>
-                <p><strong>Price: </strong><span id="price"> dollars/night</span> dollars/night</p>
-                <p><strong>Town: </strong><span id="town"></span></p>
-                <p><strong>Town-ID: </strong><span id="town_id"></span></p>
-                <!--<p><strong>Review: </strong><span id="reviews"></span></p>-->
-                <!--<p><strong>Star: </strong><span id="stars"></span></p>-->
-            </div>
-            <div  id="map1">
-
-            </div>
-
-
-        </div>
-
-
-    </div>
-
-    <div class="row">
+    <div class="row map">
+      <div class="row">
         <div class="col-md-12">
-        <div class="canvas" id="map2">
-        <h2>Room Reviews and Assessment</h2>
-        <p class="custom-tooltip" id="tooltip2" ></p>
+          <div class="" style="float:left;">
+            <h2>Room Distribution</h2>
+          </div>
         </div>
-        </div>
+      </div>
+      <div class= "row map">
+        <div class="col-md-7" id="map1"></div>
+        <div class="col-md-3" id="legend">
+          <p><div class="AllRooms colorBox"></div><span>All Rooms</span></p>
+          <p><div class="EntireHome colorBox"></div>Entire Home/Apt</p>
+          <p><div class="PrivateRoom colorBox"></div>Private Room</p>
+          <p><div class="SharedRoom colorBox"></div>Shared Room</p>
+          <div style="margin-top:20px">
+            <p><label class="btn radio-inline" id="rDensity"><input type="radio" value="">Room-Density</label></p>
+            <p><label class="btn radio-inline" id="rType"><input type="radio" value="">Room-Types</label></p>
+            <p>
+              <span>
+                <a name="anchor1" class="btn btn-default btn-sm controls Buttons" id="rClearAll">Clear-all</a>
+                <a name="anchor1" class="btn btn-default btn-sm controls Buttons" id="rInitial">Reset</a>
+              </span>
+            </p>
+          </div>
 
+
+        </div>
+      </div>
     </div>
-
-
-    <!--<div class="canvas" id="map3">3</div>-->
-</div>
-
-<!-- Scripts -->
-<script src="http://d3js.org/d3.v3.min.js "charset="utf-8"></script>
-<script src="node_modules/queue-async/queue.min.js" charset="utf-8"></script>
-<script src="script.js"></script>
-
-
-<!--<script src="script/lib/d3/d3.min.js" charset="utf-8"></script>-->
-<!--<script src="script/lib/queue/queue.min.js"></script>-->
-<!--<script src="script/script.js"></script>-->
+    <div class="row review">
+      <h2>Room Reviews</h2>
+      <div class="col-md-12 col-xs-12" id="map2">
+      </div>
+    </div>
+  </div>
+  <!-- script -->
+  <script src="http://d3js.org/d3.v3.min.js "charset="utf-8"></script>
+  <script src="queue0.min.js" charset="utf-8"></script>
+  <script src="script1.js"></script>
 </body>
 </html>

@@ -1,26 +1,22 @@
-/**
- * Created by xingyueli on 12/3/15.
- */
+var margin = {t:80,r:50,b:80,l:100};
+var width = document.getElementById('map1').clientWidth - margin.r - margin.l,
+    height = document.getElementById('map1').clientHeight - margin.t - margin.b;
 
-var margin = {t:80,r:100,b:80,l:100};
-var width = document.getElementById('row-map').clientWidth - margin.r - margin.l,
-    height = document.getElementById('row-map').clientHeight - margin.t - margin.b;
-
-var margin2 = {t:15,r:70,b:80,l:70};
+var margin2 = {t:20,r:50,b:80,l:50};
 var width2 = document.getElementById('map2').clientWidth - margin.r - margin.l,
     height2 = document.getElementById('map2').clientHeight - margin.t - margin.b;
 
 var map1 = d3.select('#map1')
     .append('svg')
-    .attr('width',width)
+    .attr('width',width + margin.l + margin.r)
     .attr('height',height + margin.t + margin.b)
     .append('g')
     .attr('class','canvas-map1')
-    .attr('transform','translate('+(-2*margin.l)+','+margin.t+')');
+    .attr('transform','translate('+margin.l*(1)+','+margin.t+')');
 
 var map2 = d3.select('#map2')
     .append('svg')
-    .attr('width',width2+margin2.r+margin2.l)
+    .attr('width',width2 + margin2.l + margin2.r)
     .attr('height',height2 + margin2.t + margin2.b)
     .append('g')
     .attr('class','canvas-map2')
@@ -31,19 +27,16 @@ var div=d3.select('body').append('div')
     .attr('class','tooltip')
     .style('opacity',0);
 
-//var map2=canvas.append('g').attr('class','map2')
 var mapA0 = map1
 var mapB0 = map2
-    //.attr('transform','translate')
 //TODO: set up a mercator projection, and a d3.geo.path() generator
 //Center the projection at the center of Boston
-
-var bostonLngLat = [-71.088066,42.315520]; //from http://itouchmap.com/latlong.html
+var bostonLngLat = [-71.088066,42.315520];
 
 var projection = d3.geo.mercator()
     .translate([width/2,height/2])
     .center([bostonLngLat[0],bostonLngLat[1]])
-    .scale(100000/1)
+    .scale(120000/1)
 
 //TODO: create a geo path generator
 var pathGenerator = d3.geo.path().projection(projection);
@@ -81,85 +74,45 @@ function dataLoaded (err,census,neighbors, airbnb){
         })
         // console.log(airbnb);
 //0.draw legend
-        Legend = d3.select('#legend').append('svg')
-            .attr('height', height+ margin.t + margin.b)
-            .append('g')
-            .attr('class','legend')
-            .attr('transform','translate('+(0*margin.l)+','+(height- margin.t)+')')
-        for(var i=0;i<=3;i++) {
-            //console.log(colorType[i]);
-            Legend
-                .append('rect')
-                .attr('x', 10)
-                .attr('y', 25*i)
-                .attr('width',20)
-                .attr('height',20)
-                .style('fill',colorType[i])
-            Legend
-                .append('text')
-                .text(legendText[i])
-                .attr('x',45)
-                .attr('y',16+25*i)
-        }
+        // Legend = d3.select('#legend').append('svg')
+        //     .attr('height', height+ margin.t + margin.b)
+        //     .append('g')
+        //     .attr('class','legend')
+        //     .attr('transform','translate('+(margin2.l*(1))+','+( margin.t)+')')
+        // for(var i=0;i<=3;i++) {
+        //     //console.log(colorType[i]);
+        //     Legend
+        //         .append('rect')
+        //         .attr('x', 10)
+        //         .attr('y', 25*i)
+        //         .attr('width',20)
+        //         .attr('height',20)
+        //         .style('fill',colorType[i])
+        //     Legend
+        //         .append('text')
+        //         .text(legendText[i])
+        //         .attr('x',45)
+        //         .attr('y',16+25*i)
+        // }
 //draw initial map
         drawInitial(census,neighbors,airbnb);
 
 //buttons control
         d3.selectAll('.btn').on('click',function(){
             //find out which button is clikced
-<<<<<<< HEAD
-            var btn=d3.select(this).attr('id')
-            //if(btn=='rDistribution'){
-            //    drawDistri(census,neighbors,airbnb)}
-            //if(btn=="rType"){
-            //    drawType(census,neighbors,airbnb)}
-            if(btn=="clearAll"){
-=======
             var id = d3.select(this).attr('id')
             location.href = "#titleId"
-            if(id == 'rDistribution'){
+            if(id == 'rDensity'){
                 drawDistri(census,neighbors,airbnb)}
             if(id == "rType"){
                 drawType(census,neighbors,airbnb)}
-            if(id == "clearAll"){
-              document.querySelectorAll("#rDistribution input")[0].checked = false
+            if(id == "rClearAll"){
+              document.querySelectorAll("#rDensity input")[0].checked = false
               document.querySelectorAll("#rType input")[0].checked = false
->>>>>>> master
                 drawClearAll(census,neighbors,airbnb)}
             if(id == "rInitial"){
                 drawInitial(census,neighbors,airbnb);}
         })
-    var checked = false;
-
-    d3.selectAll(".checkb")
-        .property('checked',checked)
-        .on("change", function () {
-        //var selected = this.name,
-        //    display = this.checked ? "inline" : "none";
-        //
-        //svg.selectAll(".dot")
-        //    .filter(function(d) { return d.name == selected; })
-        //    .attr("display", display);
-
-        console.log("ohhhhhhhhh")
-        console.log(this.value)
-        if (this.value=='1'){
-            drawDistri(census,neighbors,airbnb)}
-        if (this.value=='2'){
-            drawType(census,neighbors,airbnb)}
-
-
-    });
-
-
-    //function checkAll(){
- //    d3.selectAll('input').property('checked',true);
- //}
- //   function uncheckAll(){
- //       d3.selectAll('input').property('chedck',false)
- //   }
-
-
 //draw bar charts below
         drawGraph(census,neighbors,airbnb)
     }

@@ -4,8 +4,6 @@ html,body,div,ul,li,svg{
     list-style:none;
 
 }
-/*html,body,#container{height:100%;}*/
-/*body > #container { height: auto; min-height: 100%; }*/
 
 /*------------Global-------------*/
 html,body{
@@ -17,9 +15,6 @@ html,body{
 
 .container{
     height:100%;
-    /*width:97%;*/
-    /*position:absolute;*/
-    /*float:right;*/
     position:relative;
 }
 .container .section{
@@ -142,12 +137,11 @@ color:#f4f1f1}
 /*}*/
 
 #row-map {
-    height: 666px;
+    height: 400px;
 }
 
 
 #legend {
-    margin-top: 150%;
 }
 
 .part1 {
