@@ -1,0 +1,75 @@
+html,body{
+    height: 100%;
+    position: relative;
+    /*background: rgb(242,244,233);*/
+    background:rgb(255,255,255)
+}
+.container{
+  height:100%;
+}
+.row.map{
+  height:80%;
+}
+.row.review{
+  height:40%;
+}
+#map1{
+  height:100%;
+}
+#map2{
+  height:100%;
+}
+.buttons {
+  margin-top: 20px;
+}
+.colorBox{
+  width:20px;
+  height:20px;
+  display:inline-block;
+  margin-right:5px;
+  position:relative;
+  top:5px;
+}
+.AllRooms {
+  background-color:rgb(144, 48, 255);
+  /*purple*/
+}
+.EntireHome{
+  background-color:rgb(255, 52, 214);
+  /*pink*/
+}
+.PrivateRoom{
+  background-color:rgb(47, 255, 34);
+  /*green*/
+}
+.SharedRoom{
+  background-color:yellow;
+  /*yellow*/
+}
+.btn{
+  padding:inherit;
+  border:inherit;
+}
+.Buttons{
+  padding:5px 20px;
+  margin-right: 10px;
+  border:1px solid #aaa;
+
+}
+
+#rInitial:hover{
+  background-color: #5bc0de;
+  color:white;
+  /*border:inherit;*/
+}
+#rClearAll:hover{
+  background-color: #d9534f;
+  /*border:inherit;*/
+  color:white;
+}
+#rDensity{
+  margin-left:24px;
+}
+#rType{
+  margin-left:24px;
+}
