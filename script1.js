@@ -44,7 +44,8 @@ var pathGenerator = d3.geo.path().projection(projection);
 //TODO: create a color scale
 //var scaleColor=d3.scale.linear().domain([1,2,3]).range(['blue','orange','yellow']);
 var colorScale=d3.scale.linear().domain([0,34]).range(['white','red']);
-var colorType=["#9030FF",'2FFF22','yellow',"#FF34D6"];
+// var colorType=["#9030FF",'2FFF22','yellow',"#FF34D6"];
+var colorType=['rgb(255,90,95)','rgb(144, 48, 255)','rgb(255,180,0)','rgb(57,145,133)'];
 var legendText=['All rooms','Private room','Shared room','Entire home/apt']
 
 
@@ -234,13 +235,13 @@ function drawInitial(census,neighbors, airbnb){
         .transition()//make a transition to looks cool
         .duration(2000)
         .attr('r',10)
-        .style('fill',"#9030FF")
+        .style('fill',"rgb(255,90,95)")
         .style('opacity',0.3)
         .style('stroke','rgb(200,200,200)')
         .transition()//make a transition to looks cool
         .duration(1000)
         .attr('r',3)
-        .style('fill',"#9030FF")
+        .style('fill',"rgb(255,90,95)")
         .style('opacity',0.6)
 
     mapC1
@@ -664,7 +665,7 @@ function BlingBling3(selection){
                 .transition()
                 .duration(1000)
                 .style('r',3)
-                .style('fill',"#9030FF")
+                .style('fill',"rgb(255,90,95)")
                 .style('opacity',0.6)
         })
 }

@@ -31,19 +31,21 @@ html,body{
   top:5px;
 }
 .AllRooms {
-  background-color:rgb(144, 48, 255);
+  background-color:rgb(255,90,95);
+  /*background-color:rgb(144, 48, 255);*/
   /*purple*/
 }
 .EntireHome{
-  background-color:rgb(255, 52, 214);
+  background-color:rgb(144, 48, 255);
+  /*background-color:rgb(255, 52, 214);*/
   /*pink*/
 }
 .PrivateRoom{
-  background-color:rgb(47, 255, 34);
+  background-color:rgb(57,145,133);
   /*green*/
 }
 .SharedRoom{
-  background-color:yellow;
+  background-color:rgb(255,180,0);
   /*yellow*/
 }
 .btn{
