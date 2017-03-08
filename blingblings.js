@@ -66,7 +66,7 @@ function BlingBling3(selection){
 }
 //type points blingbling
 function BlingBling4(selection){
-  console.log(selection);
+  // console.log(selection);
   selection
   .on('mouseenter',function(d){
       d3.select(this)//this --> selection

@@ -8,14 +8,14 @@ function getTooltips1(selection){
   var tooltip=d3.select('#tooltip1');
   selection
   .on('mouseenter',function(d){
-    console.log(d);
+    // console.log(d);
       d3.select(this) //this --> selection
           .transition()
           .duration(2000)
           .attr('r','5px');
       tooltip
       .transition()
-      .style('background-color','rgba(238,238,238,0.5)')
+      // .style('background-color','rgba(238,238,238,0.5)')
       .style('opacity',1);
       tooltip.select('#r_id').html(d.ID);
       tooltip.select('#city').html(d.City);

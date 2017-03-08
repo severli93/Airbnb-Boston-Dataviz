@@ -14,60 +14,73 @@
     <div class="row title">
       <h1>Airbnb Boston Dataviz</h1>
     </div>
-
     <div class="row map">
-      <div class="row">
+      <div class="row title">
         <div class="col-md-12">
           <div class="" style="float:left;">
             <h2>Room Distribution</h2>
           </div>
         </div>
       </div>
-      <div class= "row map">
-        <div class="col-md-8 col-xs-7" id="map1">
-
-        </div>
-        <div class="col-md-4 col-xs-5" id="legend">
+      <div class="col-md-9 col-xs-9" id="map1"></div>
+      <div class="col-md-offset-8 col-xs-offset-9 col-md-3 col-xs-3" id="legendDiv">
+        <div class="legendSubDiv">
+          <p><h5><center>Legend</center></h5></p>
           <p><div class="AllRooms colorBox"></div><span>All Rooms</span></p>
           <p><div class="EntireHome colorBox"></div>Entire Home/Apt</p>
           <p><div class="PrivateRoom colorBox"></div>Private Room</p>
           <p><div class="SharedRoom colorBox"></div>Shared Room</p>
+        </div>
+        <div class="legendSubDiv">
+          <p><h5><center>Operation</center></h5></p>
           <div style="margin-top:20px">
             <p><label class="btn radio-inline" id="rDensity"><input type="radio" value="">Room-Density</label></p>
             <p><label class="btn radio-inline" id="rType"><input type="radio" value="">Room-Types</label></p>
-            <p>
-              <span>
-                <!-- <a name="anchor1" class="btn btn-default btn-sm controls Buttons" id="rClearAll">Clear-all</a> -->
-                <a name="anchor1" class="btn btn-default btn-sm controls Buttons" id="rInitial">Reset</a>
-              </span>
-            </p>
+            <p><a name="anchor1" class="btn btn-default btn-sm controls Buttons" id="rInitial">Reset</a></p>
           </div>
+        </div>
+        <div class="legendSubDiv legendsubDivLast" >
+          <p><h5><center>Tooltip</center></h5></p>
           <div class="custom-tooltip" id="tooltip1" >
-              <p><strong>Price: </strong><span id="price"> </span> $/d</p>
-              <p><strong>Type: </strong><span id="rtypes"></span></p>
-              <p><strong>Bedroom:</strong> <span id="bedroom"></span></p>
-              <p><strong>Bathroom:</strong> <span id="bathroom"></span></p>
-              <p><strong>Address: </strong><span id="addr"></span></p>
-              <p><strong>Block: </strong><span id="block"></span></p>
-              <p><strong>No. of Reviews: </strong><span id="reviewNo"></span></p>
-              <p><strong>Rating: </strong><span id="stars"></span></p>
-
+            <p><strong>Price: </strong><span id="price"> </span> $/d</p>
+            <p><strong>Type: </strong><span id="rtypes"></span></p>
+            <p><strong>Bedroom:</strong> <span id="bedroom"></span></p>
+            <p><strong>Bathroom:</strong> <span id="bathroom"></span></p>
+            <p><strong>Address: </strong><span id="addr"></span></p>
+            <p><strong>Block: </strong><span id="block"></span></p>
+            <p><strong>No. of Reviews: </strong><span id="reviewNo"></span></p>
+            <p><strong>Rating: </strong><span id="stars"></span></p>
           </div>
         </div>
       </div>
-    </div>
-    <div class="row review">
-      <h2>Room Reviews</h2>
-      <div class="col-md-12 col-xs-12" id="map2">
+      <div class="row">
+        <div class="col-md-12" id="notes" >
+          <p >Use the mouse to pan (click and move) / zoom (scrollwheel) </p>
+        </div>
+      </div>
+   </div>
+    <div class="row review" >
+      <div class="row title">
+        <div class="col-md-12 col-xs-12">
+          <div class="" style="float:left;">
+            <h2>Room Reviews</h2>
+          </div>
+        </div>
+      </div>
+      <div class="row graph">
+        <div class="col-md-12 col-xs-12" id="map2"></div>
+      </div>
+      <div class="row graph">
+        <div class="col-md-12 col-xs-12" id="map3"></div>
       </div>
     </div>
   </div>
   <!-- script -->
   <script src="https://d3js.org/d3.v3.min.js "charset="utf-8"></script>
   <script src="queue0.min.js" charset="utf-8"></script>
+  <script src="drawFuncs.js"></script>
   <script src="blingblings.js"></script>
   <script src="tooltips.js"></script>
-  <script src="zoom.js"></script>
   <script src="script1.js"></script>
 </body>
 </html>
