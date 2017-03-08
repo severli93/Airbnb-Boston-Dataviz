@@ -71,6 +71,9 @@ html,body{
   margin-left:24px;
 }
 #legendDiv{
+  /*height:70%;*/
+  position: absolute;
+  right: 10%;
   width:240px;
   min-height:10px;
   padding:0px 10px;

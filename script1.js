@@ -1,7 +1,7 @@
-var margin = {t:80,r:50,b:80,l:100};
+var margin = {t:80,r:50,b:80,l:50};
 var width = document.getElementById('map1').clientWidth - margin.r - margin.l,
-    height = document.getElementById('legendDiv').clientHeight - margin.t - margin.b;
-
+    height = $(window).height()*0.7 - margin.t - margin.b;
+console.log('height',height);
 var margin2 = {t:20,r:50,b:50,l:50};
 var width2 = document.getElementById('map2').clientWidth - margin.r - margin.l,
     height2 = document.getElementById('map2').clientHeight - margin.t - margin.b;
@@ -15,7 +15,7 @@ var map1 = d3.select('#map1')
     }))
     .append('g')
     .attr('class','canvas-map1')
-    .attr('transform','translate('+margin.l*(1)+','+margin.t*2+')');
+    .attr('transform','translate('+margin.l*(1)+','+margin.t*(1)+')');
 
 var map2 = d3.select('#map2')
     .append('svg')
