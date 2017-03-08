@@ -22,32 +22,6 @@ html,body{
 .buttons {
   margin-top: 20px;
 }
-.colorBox{
-  width:20px;
-  height:20px;
-  display:inline-block;
-  margin-right:5px;
-  position:relative;
-  top:5px;
-}
-.AllRooms {
-  background-color:rgb(255,90,95);
-  /*background-color:rgb(144, 48, 255);*/
-  /*purple*/
-}
-.EntireHome{
-  background-color:rgb(144, 48, 255);
-  /*background-color:rgb(255, 52, 214);*/
-  /*pink*/
-}
-.PrivateRoom{
-  background-color:rgb(57,145,133);
-  /*green*/
-}
-.SharedRoom{
-  background-color:rgb(255,180,0);
-  /*yellow*/
-}
 .btn{
   padding:inherit;
   border:inherit;
@@ -56,17 +30,35 @@ html,body{
   padding:5px 20px;
   margin-right: 10px;
   border:1px solid #aaa;
-
+  width:110px;
 }
-
+.colorBox{
+  width:20px;
+  height:20px;
+  display:inline-block;
+  margin-right:5px;
+  position:relative;
+  top:5px;
+  border-radius: 3px;
+}
+.AllRooms {
+  background-color:rgb(255,90,95);  /*purple*/
+}
+.EntireHome{
+  background-color:rgb(144,48,255);  /*pink*/
+}
+.PrivateRoom{
+  background-color:rgb(66,134,244);  /*green*/
+}
+.SharedRoom{
+  background-color:rgb(255,180,0);  /*yellow*/
+}
 #rInitial:hover{
   background-color: #5bc0de;
   color:white;
-  /*border:inherit;*/
 }
 #rClearAll:hover{
   background-color: #d9534f;
-  /*border:inherit;*/
   color:white;
 }
 #rDensity{
@@ -74,4 +66,13 @@ html,body{
 }
 #rType{
   margin-left:24px;
+}
+.custom-tooltip{
+    /*position:absolute;*/
+    width:240px;
+    min-height:10px;
+    padding:0px 10px;
+    opacity:0;
+    border-radius: 3px;
+    padding:3px;
 }
