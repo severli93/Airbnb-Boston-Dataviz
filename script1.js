@@ -1,6 +1,6 @@
 var margin = {t:80,r:50,b:80,l:100};
 var width = document.getElementById('map1').clientWidth - margin.r - margin.l,
-    height = document.getElementById('map1').clientHeight - margin.t - margin.b;
+    height = document.getElementById('legendDiv').clientHeight - margin.t - margin.b;
 
 var margin2 = {t:20,r:50,b:50,l:50};
 var width2 = document.getElementById('map2').clientWidth - margin.r - margin.l,
