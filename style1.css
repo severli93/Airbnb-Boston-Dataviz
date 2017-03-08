@@ -73,8 +73,8 @@ html,body{
 #legendDiv{
   /*height:70%;*/
   position: absolute;
-  right: 10%;
-  width:240px;
+  right: 5%;
+  width:280px;
   min-height:10px;
   padding:0px 10px;
   border-radius: 3px;
