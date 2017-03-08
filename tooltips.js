@@ -40,7 +40,7 @@ function getTooltips1(selection){
     })
   })
   .on('mouseout',function(){
-    d3.select(this)
+    d3.select(this).select(".datas")
         .transition()
         .duration(1000)
         .style('opacity',0);
