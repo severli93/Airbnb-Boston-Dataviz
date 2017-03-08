@@ -79,7 +79,7 @@ html,body{
   background-color:rgba(238,238,238,0.5);
 }
 .legendSubDiv{
-  border-bottom: 1px solid #333;
+  border-bottom: 1px solid #666;
 }
 .legendsubDivLast{
   border-bottom: inherit;
@@ -95,7 +95,7 @@ html,body{
   /*font-style: italic;*/
 }
 #map1{
-  position:absolute;
+  /*position:absolute;
   top:0;
-  left:0;
+  left:0;*/
 }

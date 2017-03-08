@@ -5,7 +5,7 @@ var width = document.getElementById('map1').clientWidth - margin.r - margin.l,
 var margin2 = {t:20,r:50,b:50,l:50};
 var width2 = document.getElementById('map2').clientWidth - margin.r - margin.l,
     height2 = document.getElementById('map2').clientHeight - margin.t - margin.b;
-console.log(height2);
+
 var map1 = d3.select('#map1')
     .append('svg')
     .attr('width',width + margin.l + margin.r)
@@ -15,7 +15,7 @@ var map1 = d3.select('#map1')
     }))
     .append('g')
     .attr('class','canvas-map1')
-    .attr('transform','translate('+margin.l*(1)+','+margin.t+')');
+    .attr('transform','translate('+margin.l*(1)+','+margin.t*2+')');
 
 var map2 = d3.select('#map2')
     .append('svg')
@@ -101,6 +101,7 @@ function dataLoaded (err,census,neighbors, airbnb){
   drawGraph1(census,neighbors,airbnb);
   drawGraph2(census,neighbors,airbnb);
 }
+
 
 function parseData(d){
     reviewById.set(+d.room_id, [+d['reviews'], +d['overall_sa']])
